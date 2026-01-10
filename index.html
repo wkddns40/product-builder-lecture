@@ -1,23 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotto Number Generator - High Probability</title>
+  <title>Lotto Pro - Your Ultimate Lotto Number Generator</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Lotto Number Generator</h1>
-      <p>Based on the last 100 winning numbers</p>
+    <nav class="navbar">
+      <a href="/" class="nav-brand">Lotto Pro</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/generator.html">Generator</a></li>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+        <li><a href="/pages/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <header class="hero">
+      <h1>Welcome to Lotto Pro</h1>
+      <p>Generate high-probability lotto numbers based on past winning data.</p>
+      <a href="/pages/generator.html" class="glowing-btn">
+        <span class="glowing-txt">Try the Generator</span>
+      </a>
     </header>
-    <main>
-      <button id="generate-btn" class="glowing-btn">
-        <span class="glowing-txt">Generate<span class="faulty-letter"> </span>Numbers</span>
-      </button>
-      <div id="numbers-container"></div>
+    <main class="home-main">
+        <section class="feature">
+            <h2>Why Lotto Pro?</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <h3>Data-Driven Predictions</h3>
+                    <p>Our algorithm analyzes the last 100 winning numbers to identify patterns and increase your chances of winning.</p>
+                </div>
+                <div class="card">
+                    <h3>Easy to Use</h3>
+                    <p>Just one click to generate 5 sets of high-probability numbers. It's that simple!</p>
+                </div>
+                <div class="card">
+                    <h3>Free and Open</h3>
+                    <p>Lotto Pro is completely free to use. We believe in providing value to our users.</p>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer class="footer">
+        <p>&copy; 2026 Lotto Pro. All rights reserved.</p>
+    </footer>
   </div>
   <script type="text/javascript" src="/main.js"></script>
 </body>
