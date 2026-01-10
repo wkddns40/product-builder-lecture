@@ -192,6 +192,54 @@ body {
     color: var(--primary-color);
 }
 
+.page-main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.page-main th, .page-main td {
+    padding: 15px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+.page-main th {
+    background-color: #333;
+}
+
+.faq-item, .blog-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+}
+
+.faq-item:last-child, .blog-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3, .blog-item h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.blog-item h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.blog-item h3 a:hover {
+    color: #fff;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
 
 /* Footer */
 .footer {
