@@ -160,11 +160,11 @@ body {
   box-shadow: 0 0 10px var(--primary-color);
 }
 
-.number.color-1 { background-color: #fbc400; box-shadow: 0 0 10px #fbc400; }
-.number.color-10 { background-color: #69c8f2; box-shadow: 0 0 10px #69c8f2; }
-.number.color-20 { background-color: #ff7272; box-shadow: 0 0 10px #ff7272; }
-.number.color-30 { background-color: #aaa; box-shadow: 0 0 10px #aaa; }
-.number.color-40 { background-color: #b0d840; box-shadow: 0 0 10px #b0d840; }
+.number.color-1 { background-color: #FFFF00; color: #000; box-shadow: 0 0 10px #FFFF00; }
+.number.color-10 { background-color: #00FFFF; color: #000; box-shadow: 0 0 10px #00FFFF; }
+.number.color-20 { background-color: #FF00FF; color: #000; box-shadow: 0 0 10px #FF00FF; }
+.number.color-30 { background-color: #00FF00; color: #000; box-shadow: 0 0 10px #00FF00; }
+.number.color-40 { background-color: #FFA500; color: #000; box-shadow: 0 0 10px #FFA500; }
 
 /* Other Pages (About, Contact, Privacy) */
 .page-main {
