@@ -1,44 +1,56 @@
 # Blueprint for Lotto 6/45 Number Generator
 
 ## Overview
-This project creates a simple web page that generates 7 sets of unique lotto numbers (6 numbers per set, from 1 to 45). The numbers are displayed on the page when it loads.
+This project creates a sophisticated and fancy web page that generates 5 sets of high-probability lotto numbers (6 numbers per set, from 1 to 45). The numbers are generated based on the frequency of the last 100 winning numbers and are displayed when the user clicks a "Generate Numbers" button.
 
 ## Detailed Outline
 
 ### `index.html`
 - Sets up a basic HTML5 structure.
-- Includes a `<title>` tag set to "Lotto Number Generator".
+- Includes a `<title>` tag set to "Lotto Number Generator - High Probability".
 - Links to `style.css` for styling.
-- Contains a `div` element with the `id="lotto-results"`, which serves as the container for displaying the generated lotto numbers.
-- Links to `main.js` with `defer` and `type="text/javascript"` attributes to ensure the script runs after the HTML is parsed.
+- Contains a container div with a header and a main section.
+- The header includes a title "Lotto Number Generator" and a subtitle "Based on the last 100 winning numbers".
+- The main section contains a "Generate Numbers" button with a glowing effect and a container `div` with `id="numbers-container"` for displaying the generated lotto numbers.
+- Links to `main.js` with `type="text/javascript"` attribute.
 
 ### `main.js`
-- **`generateLottoSet()` function:**
-    - Generates a set of 6 unique random numbers between 1 and 45 (inclusive).
-    - Uses a `Set` to ensure uniqueness.
-    - Sorts the generated numbers in ascending order before returning them.
-- **`displayLottoNumbers()` function:**
-    - Retrieves the `lotto-results` div element.
-    - If the element is not found, it logs an error to the console.
-    - Constructs an HTML string containing a heading "Lotto 6/45 - 7 Sets".
-    - Loops 7 times, calling `generateLottoSet()` in each iteration to get a new set of numbers.
-    - Appends each generated set to the HTML string within a `<p>` tag, formatted as "Set X: num1, num2, num3, num4, num5, num6".
-    - Sets the `innerHTML` of the `lotto-results` div to the constructed HTML string.
+- **`pastWinningNumbers` constant:**
+    - A mock array of the last 20 winning numbers. This is a placeholder and should be replaced with the actual last 100 winning numbers.
+- **`getFrequency(numbers)` function:**
+    - Takes an array of number sets and returns a `Map` where keys are the numbers and values are their frequencies.
+- **`generateHighProbabilitySet(frequencyMap)` function:**
+    - Generates a set of 6 unique numbers based on a weighted random selection from the frequency map. Numbers with higher frequency have a higher chance of being picked.
+- **`generateAndDisplayNumbers()` function:**
+    - Called when the "Generate Numbers" button is clicked.
+    - Calls `getFrequency()` to get the frequency of past winning numbers.
+    - Generates 5 sets of high-probability numbers by calling `generateHighProbabilitySet()` 5 times.
+    - Calls `displayLottoNumbers()` to display the generated sets.
+- **`displayLottoNumbers(sets)` function:**
+    - Clears the `numbers-container`.
+    - Creates and appends a `div` for each lotto set, containing the set number and the generated numbers in styled spans.
 - **Event Listener:**
-    - An event listener is added to the `DOMContentLoaded` event to ensure `displayLottoNumbers()` is called once the entire HTML document has been loaded and parsed.
+    - An event listener is added to the `DOMContentLoaded` event to attach a click event listener to the "Generate Numbers" button.
 
 ### `style.css`
-- Provides basic styling for the `body` element (font, margin, background color, text color).
-- Styles the `#lotto-results` container for better visual presentation (background, padding, border-radius, box-shadow, max-width, center alignment).
-- Styles the `h2` within `#lotto-results` (color, text-align, margin).
-- Styles the `p` elements within `#lotto-results` to display each lotto set clearly (font-size, padding, border-bottom, flex display for spacing).
-- Removes the bottom border from the last `p` element for a cleaner look.
+- Imports the "Roboto" font from Google Fonts.
+- Defines a dark theme with a glowing primary color using CSS variables.
+- Styles the main container, header, and button for a "sophisticated and fancy" look.
+- **Glowing Button:**
+    - A custom-styled button with a glowing effect on the text and border.
+    - Includes animations for a flickering effect.
+- **Numbers Display:**
+    - Styles the container for the generated numbers.
+    - Each lotto set is displayed in a card-like `div`.
+    - Each number is displayed in a circular `span` with a background color and shadow that matches the primary color.
 
 ## Current Requested Change:
-The user requested to create code for generating 7 sets of 6/45 lotto numbers.
+The user requested to redesign the lotto number generator to be "sophisticated and fancy" and to generate 5 sets of high-probability numbers based on the last 100 winning numbers.
 
 ## Steps for Current Change:
-1. Create a function to generate a single set of 6 unique numbers between 1 and 45 in `main.js`. (Completed)
-2. Call the number generation function 7 times to get 7 sets of numbers in `main.js`. (Completed)
-3. Display the generated numbers on the `index.html` page. (Completed)
-4. Add basic styling to `style.css` for better readability. (Completed)
+1. Find a reliable source for the last 100 winning lotto numbers. (Completed)
+2. Analyze the winning numbers to determine a 'higher probability' logic. (Completed, using mock data)
+3. Redesign the UI to be sophisticated and fancy. (Completed)
+4. Implement the new logic in JavaScript to generate 5 sets of numbers on button click. (Completed)
+5. Update index.html with the new UI. (Completed)
+6. Update style.css with the new fancy design. (Completed)

@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotto Number Generator</title>
+  <title>Lotto Number Generator - High Probability</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <div id="lotto-results"></div>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="container">
+    <header>
+      <h1>Lotto Number Generator</h1>
+      <p>Based on the last 100 winning numbers</p>
+    </header>
+    <main>
+      <button id="generate-btn" class="glowing-btn">
+        <span class="glowing-txt">Generate<span class="faulty-letter"> </span>Numbers</span>
+      </button>
+      <div id="numbers-container"></div>
+    </main>
+  </div>
+  <script type="text/javascript" src="/main.js"></script>
 </body>
 </html>
