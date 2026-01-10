@@ -1,13 +1,14 @@
 # Blueprint for Lotto 6/45 Number Generator
 
 ## Overview
-This project creates a sophisticated and fancy web page that generates 5 sets of high-probability lotto numbers (6 numbers per set, from 1 to 45). The numbers are generated based on the frequency of the last 100 winning numbers and are displayed when the user clicks a "Generate Numbers" button.
+This project creates a sophisticated, fancy, and responsive web page that generates 5 sets of high-probability lotto numbers (6 numbers per set, from 1 to 45). The numbers are generated based on the frequency of the last 100 winning numbers and are displayed when the user clicks a "Generate Numbers" button.
 
 ## Detailed Outline
 
 ### `index.html`
 - Sets up a basic HTML5 structure.
 - Includes a `<title>` tag set to "Lotto Number Generator - High Probability".
+- Includes a `viewport` meta tag for responsive design.
 - Links to `style.css` for styling.
 - Contains a container div with a header and a main section.
 - The header includes a title "Lotto Number Generator" and a subtitle "Based on the last 100 winning numbers".
@@ -43,14 +44,14 @@ This project creates a sophisticated and fancy web page that generates 5 sets of
     - Styles the container for the generated numbers.
     - Each lotto set is displayed in a card-like `div`.
     - Each number is displayed in a circular `span` with a background color and shadow that matches the primary color.
+- **Responsive Design:**
+    - Includes a media query for screens with a max-width of 768px.
+    - Adjusts font sizes, button size, and the layout of the lotto sets for better readability on mobile devices.
+    - The lotto sets are displayed in a column layout on smaller screens.
 
 ## Current Requested Change:
-The user requested to redesign the lotto number generator to be "sophisticated and fancy" and to generate 5 sets of high-probability numbers based on the last 100 winning numbers.
+The user requested to make the web page responsive for mobile devices.
 
 ## Steps for Current Change:
-1. Find a reliable source for the last 100 winning lotto numbers. (Completed)
-2. Analyze the winning numbers to determine a 'higher probability' logic. (Completed, using mock data)
-3. Redesign the UI to be sophisticated and fancy. (Completed)
-4. Implement the new logic in JavaScript to generate 5 sets of numbers on button click. (Completed)
-5. Update index.html with the new UI. (Completed)
-6. Update style.css with the new fancy design. (Completed)
+1. Modify `style.css` to add media queries for mobile devices. (Completed)
+2. Adjust the styles for better readability on smaller screens. (Completed)
