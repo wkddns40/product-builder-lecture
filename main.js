@@ -1,9 +1,14 @@
 const generateBtn = document.getElementById('generate-btn');
 const numbersContainer = document.getElementById('numbers-container');
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
 
 generateBtn.addEventListener('click', () => {
     const numbers = generateNumbers();
     displayNumbers(numbers);
+});
+
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 });
 
 function generateNumbers() {

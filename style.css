@@ -1,10 +1,27 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --btn-bg-color: #4CAF50;
+    --btn-text-color: white;
+    --number-bg-color: #ddd;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --bg-color: #333;
+    --text-color: #f0f0f0;
+    --btn-bg-color: #555;
+    --number-bg-color: #555;
 }
 
 #app {
@@ -12,17 +29,17 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
 }
 
-#generate-btn {
+#generate-btn, #theme-toggle-btn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
     margin-bottom: 20px;
 }
 
@@ -35,7 +52,7 @@ h1 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: var(--number-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
