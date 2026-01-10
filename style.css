@@ -151,7 +151,7 @@ body {
   height: 45px;
   border-radius: 50%;
   background-color: var(--primary-color);
-  color: var(--bg-color);
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,6 +159,12 @@ body {
   font-weight: bold;
   box-shadow: 0 0 10px var(--primary-color);
 }
+
+.number.color-1 { background-color: #fbc400; box-shadow: 0 0 10px #fbc400; }
+.number.color-10 { background-color: #69c8f2; box-shadow: 0 0 10px #69c8f2; }
+.number.color-20 { background-color: #ff7272; box-shadow: 0 0 10px #ff7272; }
+.number.color-30 { background-color: #aaa; box-shadow: 0 0 10px #aaa; }
+.number.color-40 { background-color: #b0d840; box-shadow: 0 0 10px #b0d840; }
 
 /* Other Pages (About, Contact, Privacy) */
 .page-main {

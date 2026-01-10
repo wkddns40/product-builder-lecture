@@ -57,6 +57,21 @@ function generateAndDisplayNumbers() {
   displayLottoNumbers(lottoSets);
 }
 
+function getColorClass(number) {
+  if (number >= 1 && number <= 9) {
+    return 'color-1';
+  } else if (number >= 10 && number <= 19) {
+    return 'color-10';
+  } else if (number >= 20 && number <= 29) {
+    return 'color-20';
+  } else if (number >= 30 && number <= 39) {
+    return 'color-30';
+  } else if (number >= 40 && number <= 45) {
+    return 'color-40';
+  }
+  return '';
+}
+
 function displayLottoNumbers(sets) {
   const container = document.getElementById('numbers-container');
   if (!container) {
@@ -74,7 +89,7 @@ function displayLottoNumbers(sets) {
     numbersDiv.classList.add('numbers');
     set.forEach(num => {
       const numberSpan = document.createElement('span');
-      numberSpan.classList.add('number');
+      numberSpan.classList.add('number', getColorClass(num));
       numberSpan.textContent = num;
       numbersDiv.appendChild(numberSpan);
     });
