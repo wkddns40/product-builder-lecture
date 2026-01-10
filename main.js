@@ -1,78 +1,86 @@
-// Mock data for the last 20 winning numbers
+// Mock data for the last 20 Powerball winning numbers
+// Each array represents [white_ball_1, wb_2, wb_3, wb_4, wb_5, powerball]
 const pastWinningNumbers = [
-  [1, 4, 16, 23, 31, 41],
-  [8, 16, 28, 30, 31, 44],
-  [3, 6, 18, 29, 35, 39],
-  [10, 12, 15, 25, 33, 43],
-  [5, 11, 20, 22, 34, 40],
-  [2, 7, 9, 19, 26, 38],
-  [13, 14, 17, 21, 24, 32],
-  [1, 6, 11, 22, 36, 45],
-  [4, 8, 10, 20, 27, 37],
-  [9, 13, 19, 24, 30, 42],
-  [7, 14, 21, 28, 35, 42],
-  [3, 12, 18, 26, 33, 44],
-  [5, 10, 15, 20, 25, 30],
-  [2, 9, 11, 23, 34, 41],
-  [1, 16, 17, 29, 38, 45],
-  [6, 8, 14, 22, 27, 36],
-  [4, 7, 13, 19, 32, 40],
-  [18, 21, 24, 31, 37, 43],
-  [5, 12, 26, 33, 39, 42],
-  [2, 11, 15, 28, 35, 44]
+  [10, 33, 41, 47, 56, 10],
+  [22, 24, 40, 52, 64, 10],
+  [5, 25, 38, 52, 67, 4],
+  [17, 22, 36, 37, 52, 24],
+  [4, 8, 19, 28, 30, 11],
+  [16, 23, 30, 44, 58, 2],
+  [9, 11, 27, 59, 66, 19],
+  [2, 22, 29, 39, 42, 23],
+  [1, 4, 12, 36, 49, 13],
+  [7, 10, 11, 13, 24, 24],
+  [19, 29, 35, 36, 46, 15],
+  [20, 23, 33, 34, 59, 21],
+  [12, 18, 20, 39, 61, 10],
+  [2, 13, 23, 34, 65, 25],
+  [14, 21, 22, 39, 43, 26],
+  [28, 35, 41, 46, 54, 4],
+  [1, 2, 25, 48, 53, 1],
+  [21, 24, 33, 55, 69, 18],
+  [30, 31, 38, 48, 62, 12],
+  [1, 12, 20, 33, 66, 17]
 ];
 
-function getFrequency(numbers) {
+function getFrequency(numbers, isPowerball) {
   const frequencyMap = new Map();
   for (const set of numbers) {
-    for (const num of set) {
-      frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+    if (isPowerball) {
+      const powerball = set[5];
+      frequencyMap.set(powerball, (frequencyMap.get(powerball) || 0) + 1);
+    } else {
+      for (let i = 0; i < 5; i++) {
+        const num = set[i];
+        frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+      }
     }
   }
   return frequencyMap;
 }
 
-function generateHighProbabilitySet(frequencyMap) {
-  const weightedNumbers = [];
-  for (const [num, freq] of frequencyMap.entries()) {
+function generateHighProbabilitySet(whiteBallFreq, powerballFreq) {
+  const weightedWhiteBalls = [];
+  for (const [num, freq] of whiteBallFreq.entries()) {
     for (let i = 0; i < freq; i++) {
-      weightedNumbers.push(num);
+      weightedWhiteBalls.push(num);
     }
   }
 
-  const selectedNumbers = new Set();
-  while (selectedNumbers.size < 6) {
-    const randomIndex = Math.floor(Math.random() * weightedNumbers.length);
-    selectedNumbers.add(weightedNumbers[randomIndex]);
+  const weightedPowerballs = [];
+  for (const [num, freq] of powerballFreq.entries()) {
+    for (let i = 0; i < freq; i++) {
+      weightedPowerballs.push(num);
+    }
   }
-  return Array.from(selectedNumbers).sort((a, b) => a - b);
+  
+  const selectedWhiteBalls = new Set();
+  while (selectedWhiteBalls.size < 5) {
+    const randomIndex = Math.floor(Math.random() * weightedWhiteBalls.length);
+    selectedWhiteBalls.add(weightedWhiteBalls[randomIndex]);
+  }
+  
+  const powerballRandomIndex = Math.floor(Math.random() * weightedPowerballs.length);
+  const selectedPowerball = weightedPowerballs[powerballRandomIndex];
+
+  return {
+    whiteBalls: Array.from(selectedWhiteBalls).sort((a, b) => a - b),
+    powerball: selectedPowerball
+  };
 }
 
 function generateAndDisplayNumbers() {
-  const frequencyMap = getFrequency(pastWinningNumbers);
-  const lottoSets = [];
+  const whiteBallFreq = getFrequency(pastWinningNumbers, false);
+  const powerballFreq = getFrequency(pastWinningNumbers, true);
+  
+  const powerballSets = [];
   for (let i = 0; i < 5; i++) {
-    lottoSets.push(generateHighProbabilitySet(frequencyMap));
+    powerballSets.push(generateHighProbabilitySet(whiteBallFreq, powerballFreq));
   }
-  displayLottoNumbers(lottoSets);
+  displayPowerballNumbers(powerballSets);
 }
 
-function getColorClass(number) {
-  if (number >= 1 && number <= 9) {
-    return 'color-1';
-  } else if (number >= 10 && number <= 19) {
-    return 'color-10';
-  } else if (number >= 20 && number <= 29) {
-    return 'color-20';
-  } else if (number >= 30 && number <= 39) {
-    return 'color-30';
-  } else if (number >= 40 && number <= 45) {
-    return 'color-40';
-  }
-  return '';
-}
-
-function displayLottoNumbers(sets) {
+function displayPowerballNumbers(sets) {
   const container = document.getElementById('numbers-container');
   if (!container) {
     console.error("Element with ID 'numbers-container' not found.");
@@ -87,12 +95,19 @@ function displayLottoNumbers(sets) {
     
     const numbersDiv = document.createElement('div');
     numbersDiv.classList.add('numbers');
-    set.forEach(num => {
+    
+    set.whiteBalls.forEach(num => {
       const numberSpan = document.createElement('span');
-      numberSpan.classList.add('number', getColorClass(num));
+      numberSpan.classList.add('number');
       numberSpan.textContent = num;
       numbersDiv.appendChild(numberSpan);
     });
+    
+    const powerballSpan = document.createElement('span');
+    powerballSpan.classList.add('number', 'powerball');
+    powerballSpan.textContent = set.powerball;
+    numbersDiv.appendChild(powerballSpan);
+    
     setDiv.appendChild(numbersDiv);
     container.appendChild(setDiv);
   }

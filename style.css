@@ -150,21 +150,21 @@ body {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
   font-weight: bold;
-  box-shadow: 0 0 10px var(--primary-color);
+  box-shadow: 0 0 10px #fff;
 }
 
-.number.color-1 { background-color: #FFFF00; color: #000; box-shadow: 0 0 10px #FFFF00; }
-.number.color-10 { background-color: #00FFFF; color: #000; box-shadow: 0 0 10px #00FFFF; }
-.number.color-20 { background-color: #FF00FF; color: #000; box-shadow: 0 0 10px #FF00FF; }
-.number.color-30 { background-color: #00FF00; color: #000; box-shadow: 0 0 10px #00FF00; }
-.number.color-40 { background-color: #FFA500; color: #000; box-shadow: 0 0 10px #FFA500; }
+.powerball {
+  background-color: #ff4d4d;
+  color: #fff;
+  box-shadow: 0 0 10px #ff4d4d;
+}
 
 /* Other Pages (About, Contact, Privacy) */
 .page-main {
