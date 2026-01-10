@@ -1,61 +1,33 @@
-:root {
-    --bg-color: #f0f0f0;
-    --text-color: #333;
-    --btn-bg-color: #4CAF50;
-    --btn-text-color: white;
-    --number-bg-color: #ddd;
-}
-
 body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-body.dark-mode {
-    --bg-color: #333;
-    --text-color: #f0f0f0;
-    --btn-bg-color: #555;
-    --number-bg-color: #555;
+#lotto-results {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-#app {
-    text-align: center;
+#lotto-results h2 {
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-h1 {
-    color: var(--text-color);
+#lotto-results p {
+  font-size: 1.1em;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
 }
 
-#generate-btn, #theme-toggle-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--btn-bg-color);
-    color: var(--btn-text-color);
-    margin-bottom: 20px;
-}
-
-#numbers-container {
-    display: flex;
-    gap: 10px;
-}
-
-.number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--number-bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
+#lotto-results p:last-child {
+  border-bottom: none;
 }
