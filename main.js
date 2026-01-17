@@ -119,3 +119,34 @@ document.addEventListener('DOMContentLoaded', () => {
         generateBtn.addEventListener('click', generateAndDisplayNumbers);
     }
 });
+
+/* SNS Sharing Logic */
+function shareTo(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(document.title);
+    let shareUrl = '';
+
+    switch (platform) {
+        case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            break;
+        case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            break;
+        case 'whatsapp':
+            shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+            break;
+    }
+
+    if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+}
+
+function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Link copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
