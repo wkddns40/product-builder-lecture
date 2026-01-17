@@ -139,6 +139,12 @@ function shareTo(platform) {
         case 'threads':
             shareUrl = `https://www.threads.net/intent/post?text=${text}%20${url}`;
             break;
+        case 'instagram':
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied! Instagram does not support direct web sharing. Open Instagram to paste and share?');
+                window.open('https://www.instagram.com/', '_blank');
+            });
+            return;
     }
 
     if (shareUrl) {
