@@ -145,6 +145,12 @@ function shareTo(platform) {
                 window.open('https://www.instagram.com/', '_blank');
             });
             return;
+        case 'tiktok':
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied! TikTok does not support direct web sharing. Open TikTok to share?');
+                window.open('https://www.tiktok.com/', '_blank');
+            });
+            return;
     }
 
     if (shareUrl) {
