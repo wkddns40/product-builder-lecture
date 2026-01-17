@@ -136,6 +136,9 @@ function shareTo(platform) {
         case 'whatsapp':
             shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
             break;
+        case 'threads':
+            shareUrl = `https://www.threads.net/intent/post?text=${text}%20${url}`;
+            break;
     }
 
     if (shareUrl) {

@@ -400,5 +400,6 @@ body {
 
 .share-btn.facebook { background-color: #1877f2; }
 .share-btn.twitter { background-color: #000; border: 1px solid #333; }
+.share-btn.threads { background-color: #000; border: 1px solid #333; }
 .share-btn.whatsapp { background-color: #25d366; }
 .share-btn.copy-link { background-color: #555; }
