@@ -170,6 +170,20 @@ function copyLink() {
 console.log('Initializing Userback Widget...');
 window.Userback = window.Userback || {};
 Userback.access_token = "A-IDGMvGHJRKs3vKuvf5oDVrvZ2";
+Userback.on_load = function() {
+    console.log('Userback widget loaded successfully.');
+};
+
 (function(d) {
-  var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+  var s = d.createElement('script');
+  s.async = true;
+  s.setAttribute('data-cfasync', 'false'); // Prevent Cloudflare Rocket Loader
+  s.src = 'https://static.userback.io/widget/v1.js';
+  s.onload = function() {
+      console.log('Userback script downloaded.');
+  };
+  s.onerror = function() {
+      console.error('Userback script failed to download.');
+  };
+  (d.head || d.body).appendChild(s);
 })(document);
