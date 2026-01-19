@@ -167,6 +167,7 @@ function copyLink() {
 }
 
 // Userback Widget Initialization
+console.log('Initializing Userback Widget...');
 window.Userback = window.Userback || {};
 Userback.access_token = "A-IDGMvGHJRKs3vKuvf5oDVrvZ2";
 (function(d) {
