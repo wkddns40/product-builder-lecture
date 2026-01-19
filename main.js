@@ -165,3 +165,10 @@ function copyLink() {
         console.error('Failed to copy: ', err);
     });
 }
+
+// Userback Widget Initialization
+window.Userback = window.Userback || {};
+Userback.access_token = "A-IDGMvGHJRKs3vKuvf5oDVrvZ2";
+(function(d) {
+  var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+})(document);
